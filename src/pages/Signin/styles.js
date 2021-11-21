@@ -14,7 +14,7 @@ export const Container = styled.View`
     flex: 1;
     justify-content: center;
     align-items: center;
-    padding-bottom: 30px;
+    padding-bottom: 60px;
     width: 90%;
     `
 
@@ -32,8 +32,6 @@ export const Text = styled.Text`
     font-weight: 800;
     margin-bottom: 30px;
     `
-
-
 export const Input = styled.TextInput`
     border: 1px solid #12E6Cb;
     margin-bottom: 30px;

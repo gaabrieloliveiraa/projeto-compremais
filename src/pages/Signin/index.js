@@ -1,14 +1,16 @@
 import React from "react";
-import { View, Text} from 'react-native';
-import { Image, KeyboardView, Title , Container, Input, ButtonSubmit, TextButton,Subtitle, Header} from './styles'
+import {Image, View, Text,} from 'react-native';
+import {KeyboardView, Container, Input, ButtonSubmit, TextButton,Subtitle, Header} from './styles'
 
 
 function Signin(){
     return(
+      
       <KeyboardView>
         
         <Container>      
-         <Title >Entrar em minha conta</Title>
+         <Image source={require('../../assets/logo.png')}  style={{width: 400, height: 70, paddingTop: 40,}}/>
+         
         <Input
             placeholderTextColor="#fff"   
             placeholder="Nome:"

@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Text} from 'react-native';
+import {Image, View, Text} from 'react-native';
+import { Subtitle } from "../Signin/styles";
 import { KeyboardView, Title , Container, Input, ButtonSubmit, TextButton,} from './styles'
 
 
@@ -8,8 +9,9 @@ function Acount(){
       <KeyboardView>
 
         <Container>
-        <Title>Cadastre-se</Title>
+        <Image source={require('../../assets/logo.png')}  style={{width: 400, height: 70, paddingTop: 40,}}/>
 
+        <Subtitle>Crie sua conta grátis</Subtitle>
           <Input
             placeholderTextColor="#fff"
             
@@ -33,16 +35,13 @@ function Acount(){
             onChangeText={()=> {}}
           />
 
-
             <Input
             placeholderTextColor="#fff"
-            placeholder="Cpf:"
+            placeholder="CPF:"
             secureTextEntry
             autocorrect={false}
             onChangeText={()=> {}}
           />
-
-
 
           <Input
             placeholderTextColor="#fff"

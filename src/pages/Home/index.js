@@ -1,27 +1,24 @@
 import React from "react";
 import { ScrollView} from "react-native";
 
-import { Container,SearchContainer, Input, SearchButton, Title, BannerButton, Banner, SliderOferta} from './styles';
+import { Container, SearchContainer, Input, SearchButton, Title, BannerButton, Banner, SliderOferta} from './styles';
 
 import { Feather } from '@expo/vector-icons';
 import Header from '../../components/Header';
 
 import SliderItem from '../../components/SliderItem';
 
-   
+          
+    function Home(){
+      return(
+        <Container>
+        <Header title="Página Inicial" />
 
-  function Home(){
-     return(
-       
-       <Container>
-       
-       <Header title="Página Inicial" />
-
-        <SearchContainer>
-        <Input
-        placeholder="Ex: Jogos para PS4"
-        placeholderTextColor="#ddd"
-            />
+          <SearchContainer>
+          <Input
+          placeholder="Ex: Jogos para PS4"
+          placeholderTextColor="#ddd"
+              />
 
          <SearchButton>
             <Feather name="search" size={38} color="#FFF" />

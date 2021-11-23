@@ -1,4 +1,13 @@
 import styled from 'styled-components/native';
+import { StyleSheet } from "react-native";
+
+export const PromoList = StyleSheet.create({
+    promotionsList: {
+      minHeight: '90%',
+      maxHeight: '90%',
+      backgroundColor: '#ffffff'
+    }
+});
 
 export const Container = styled.SafeAreaView`
 

@@ -3,12 +3,14 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import {MaterialCommunityIcons } from '@expo/vector-icons';
 
+
 import Ofertas from '../pages/Ofertas';
 import Login from '../pages/Signin';
 import StackRoutes from './stackRoutes';
 import Signin from '../pages/Signin';
 import Acount from '../pages/Acount';
-
+import CadProdutos from '../pages/CadProdutos';
+import CadCategorias from '../pages/CadCategorias';
 
 
 const Drawer = createDrawerNavigator();
@@ -21,8 +23,7 @@ function Routes(){
 
                 drawerStyle:{
                     backgroundColor: '#2d5ff5',
-                    paddingTop: 20,
-                    
+                    paddingTop: 20,                   
                 },
 
                 drawerActiveBackgroundColor:'#809aeb',
@@ -41,8 +42,7 @@ function Routes(){
                         size={size}
                         color={color}
                     />
-                )
-     
+                )     
             }}
             />
             <Drawer.Screen
@@ -69,7 +69,7 @@ function Routes(){
                 title:'Login',
                 drawerIcon: ({focused, size, color}) => (
                     <MaterialCommunityIcons
-                        name="login"
+                        name="account-circle"
                         size={size}
                         color={color}               
                         />
@@ -84,13 +84,43 @@ function Routes(){
                 title:'Criar Conta',
                 drawerIcon: ({focused, size, color}) => (
                     <MaterialCommunityIcons
-                        name="account"
+                        name="account-plus"
                         size={size}
                         color={color}               
                         />
                       )
                         }}
                      />               
+          
+          <Drawer.Screen
+          name="CadProdutos"
+          component={CadProdutos}
+          options={{
+              title:'Cadastrar Produtos',
+              drawerIcon: ({focused, size, color}) =>(
+                  <MaterialCommunityIcons
+                  name="sale"
+                  size={size}
+                  color={color}
+                  />
+              )
+          }}
+       />   
+
+<Drawer.Screen
+          name="CadCategorias"
+          component={CadCategorias}
+          options={{
+              title:'Cadastrar Categorias',
+              drawerIcon: ({focused, size, color}) =>(
+                  <MaterialCommunityIcons
+                  name="sale"
+                  size={size}
+                  color={color}
+                  />
+              )
+          }}
+       />     
 
 
         </Drawer.Navigator>

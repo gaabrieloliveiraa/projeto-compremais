@@ -16,7 +16,7 @@ function Signin(){
 
         <Input
             placeholderTextColor="#fff"   
-            placeholder="Nome:"
+            placeholder="E-mail:"
             autocorrect={false}
             onChangeText={()=> {}}
           />    

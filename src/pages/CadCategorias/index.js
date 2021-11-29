@@ -14,17 +14,12 @@ export default function App(){
           <View style={styles.container}>
             <TextInput
              style={styles.input}
-              placeholder="nome da categoria"
+              placeholder="Nome da categoria"
               autoCorrect={false}
               onChangeText={()=> {}}
             />
 
-                <TextInput
-                style={styles.input}
-                placeholder="descrição da categoria"
-                autoCorrect={false}
-                onChangeText={()=> {}}
-              /> 
+            
 
            <TouchableOpacity  style={styles.btnSubmit}>
               <Text style={styles.submitText}>cadastrar</Text>
@@ -49,7 +44,7 @@ export default function App(){
           justifyContent:'center',
           width:'90%',
         },
-        input:{
+        input:{  
           backgroundColor:'#fff',
           width:'90%',
           marginBottom:15,

@@ -99,7 +99,7 @@ function Routes(){
               title:'Cadastrar Produtos',
               drawerIcon: ({focused, size, color}) =>(
                   <MaterialCommunityIcons
-                  name="sale"
+                  name="content-save-edit"
                   size={size}
                   color={color}
                   />
@@ -114,7 +114,7 @@ function Routes(){
               title:'Cadastrar Categorias',
               drawerIcon: ({focused, size, color}) =>(
                   <MaterialCommunityIcons
-                  name="sale"
+                  name="content-save-edit"
                   size={size}
                   color={color}
                   />

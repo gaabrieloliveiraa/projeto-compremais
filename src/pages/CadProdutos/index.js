@@ -14,21 +14,28 @@ export default function App(){
           <View style={styles.container}>
             <TextInput
              style={styles.input}
-              placeholder="nome do produto"
+              placeholder="Nome do produto"
               autoCorrect={false}
               onChangeText={()=> {}}
             />
 
                 <TextInput
                 style={styles.input}
-                placeholder="descrição do produto"
+                placeholder="Descrição do produto"
+                autoCorrect={false}
+                onChangeText={()=> {}}
+              /> 
+
+               <TextInput
+                style={styles.input}
+                placeholder="Categoria do produto"
                 autoCorrect={false}
                 onChangeText={()=> {}}
               /> 
 
               <TextInput
               style={styles.input}
-              placeholder="valor"
+              placeholder="Valor"
               autoCorrect={false}
               onChangeText={()=> {}}
             />
@@ -38,7 +45,7 @@ export default function App(){
             </TouchableOpacity>
 
            <TouchableOpacity  style={styles.btnSubmit}>
-              <Text style={styles.submitText}>cadastrar</Text>
+              <Text style={styles.submitText}>Cadastrar</Text>
             </TouchableOpacity>
          
 

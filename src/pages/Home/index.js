@@ -66,7 +66,7 @@ function Home() {
         {isLoading ? <ActivityIndicator /> : (
           <FlatList
             data={data}
-            keyExtractor={({ id }, index) => id}
+            keyExtractor={({ id }, index) => id.toString()}
             renderItem={({ item }) => (
               <>
                 <Title numberOfLines={1}>{item.nome}</Title>

@@ -53,7 +53,7 @@ export default function App() {
 
         <TouchableOpacity onPress={saveData}>
           <View style={{ backgroundColor: 'blue', padding: 10 }}>
-            <Text style={{ color: 'white', textAlign: 'center' }}>
+            <Text style={{ color: 'white', textAlign: 'center'  }}>
               {loading ? 'Salvando...' : 'Salvar'}
             </Text>
           </View>

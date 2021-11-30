@@ -11,7 +11,8 @@ import Signin from '../pages/Signin';
 import Acount from '../pages/Acount';
 import CadProdutos from '../pages/CadProdutos';
 import CadCategorias from '../pages/CadCategorias';
-
+import ListaCategorias from '../pages/ListaCategorias';
+import DetalheProduto from '../pages/DetalheProduto';
 
 const Drawer = createDrawerNavigator();
 
@@ -99,7 +100,7 @@ function Routes(){
               title:'Cadastrar Produtos',
               drawerIcon: ({focused, size, color}) =>(
                   <MaterialCommunityIcons
-                  name="content-save-edit"
+                  name="rename-box"
                   size={size}
                   color={color}
                   />
@@ -114,7 +115,22 @@ function Routes(){
               title:'Cadastrar Categorias',
               drawerIcon: ({focused, size, color}) =>(
                   <MaterialCommunityIcons
-                  name="content-save-edit"
+                  name="rename-box"
+                  size={size}
+                  color={color}
+                  />
+              )
+          }}
+       />     
+
+<Drawer.Screen
+          name="ListaCategorias"
+          component={ListaCategorias}
+          options={{
+              title:'Categorias',
+              drawerIcon: ({focused, size, color}) =>(
+                  <MaterialCommunityIcons
+                  name="text-box"
                   size={size}
                   color={color}
                   />
@@ -123,6 +139,21 @@ function Routes(){
        />     
 
 
+
+<Drawer.Screen
+          name="DetalheProduto"
+          component={DetalheProduto}
+          options={{
+              title:'Detalhes do Produto',
+              drawerIcon: ({focused, size, color}) =>(
+                  <MaterialCommunityIcons
+                  name="card-search"
+                  size={size}
+                  color={color}
+                  />
+              )
+          }}
+       />     
         </Drawer.Navigator>
  )
 }

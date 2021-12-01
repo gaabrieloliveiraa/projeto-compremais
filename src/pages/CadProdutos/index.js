@@ -11,10 +11,12 @@
 
     const [product, setProduct] = useState({
           nome: '',
+          descricao:'',
+          preco:'',
         });
 
         const onChangeName = (value) => {
-          setProduct({ ...product, nome: value });
+          setProduct({ ...product, nome, descricao, preco: value });
         };
 
         const saveData = () => {
@@ -29,8 +31,8 @@
             body: JSON.stringify({
               nome: product.nome, 
               descricao: product.descricao,
-              preco: product.preco,
-              image:product.image,
+              preco: product.preco
+              
             }),
           })
             .then((response) => {
@@ -40,9 +42,6 @@
             .then((result) => console.log(result))
             .catch((error) => console.log(error));
         };
-
-
-
 
      return(
         <KeyboardView>
@@ -73,13 +72,7 @@
               autocorrect={false}
               onChangeText={()=> {}}
             />
-             <Input
-              placeholderTextColor="#fff"
-              placeholder="Carregar imagem:"
-              secureTextEntry
-              autocorrect={false}
-              onChangeText={()=> {}}
-            />
+             
 
             <TouchableOpacity onPress={saveData}>
             <View style={{ backgroundColor: 'blue', padding: 10 }}>

@@ -5,8 +5,7 @@ import { Feather } from '@expo/vector-icons';
 import Header from '../../components/Header';
 import { Container, BannerItem, RateContainer, PromoList, SearchContainer, Input, SearchButton, Title, BannerButton, Banner, SliderOferta, Rate } from './styles';
 
-
-function Home() {
+export default function App() {
 
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -51,7 +50,7 @@ function Home() {
 
   return (
     <Container>
-      <Header title="Página Inicial" />
+      <Header title="Detalhes do produto" />
       <SearchContainer>
         <Input
           placeholder="Ex: Jogos para PS4"
@@ -83,4 +82,3 @@ function Home() {
     </Container>
   );
 }
-export default Home;

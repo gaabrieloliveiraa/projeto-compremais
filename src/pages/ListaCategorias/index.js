@@ -9,20 +9,27 @@ export default function App(){
         <Container>
         <Image source={require('../../assets/logo.png')}  style={{width: 400, height: 70, paddingTop: 40,}}/>
 
-       
-          <Input
-            placeholderTextColor="#fff"
-            
-            placeholder="Selecionar categoria:"
-            autocorrect={false}
-            onChangeText={()=> {}}
+        <View style={{ flex: 1, padding: 24 }}>
+        {isLoading ? <ActivityIndicator /> : (
+          <FlatList
+            data={data}
+            keyExtractor={({ id }, index) => id.toString()}
+            renderItem={({ item }) => (
+              <>
+                <Title numberOfLines={1}>{item.nome}</Title>
+                <Text>{item.descricao}</Text>
+                <Text>{item.preco}</Text>
+              </>
+            )}
+            refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }
           />
-          
-          <ButtonSubmit>
-            <TextButton>Exibir</TextButton>
-          </ButtonSubmit> 
+        )}
+      </View>
+    </Container>
          
-      </Container>     
+   
 </KeyboardView>
     
     

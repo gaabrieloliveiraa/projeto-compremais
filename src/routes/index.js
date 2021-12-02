@@ -1,7 +1,7 @@
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
-import {MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 
 import Ofertas from '../pages/Ofertas';
@@ -16,131 +16,124 @@ import DetalheProduto from '../pages/DetalheProduto';
 
 const Drawer = createDrawerNavigator();
 
-function Routes(){
-    return(
+function Routes() {
+    return (
         <Drawer.Navigator
             screenOptions={{
-                headerShown:false,
+                headerShown: false,
 
-                drawerStyle:{
+                drawerStyle: {
                     backgroundColor: '#2d5ff5',
-                    paddingTop: 20,                   
+                    paddingTop: 20,
                 },
 
-                drawerActiveBackgroundColor:'#809aeb',
-                drawerActiveTintColor:'#FFF',
-                drawerInactiveTintColor:'#FFF'
+                drawerActiveBackgroundColor: '#809aeb',
+                drawerActiveTintColor: '#FFF',
+                drawerInactiveTintColor: '#FFF'
             }}
         >
-            <Drawer.Screen 
-            name="HomeDrawer" 
-            component={StackRoutes}
-            options={{
-                title:'Home',
-                drawerIcon: ({focused, size, color}) => (
-                    <MaterialCommunityIcons
-                        name="home"
-                        size={size}
-                        color={color}
-                    />
-                )     
-            }}
+            <Drawer.Screen
+                name="HomeDrawer"
+                component={StackRoutes}
+                options={{
+                    title: 'Home',
+                    drawerIcon: ({ focused, size, color }) => (
+                        <MaterialCommunityIcons
+                            name="home"
+                            size={size}
+                            color={color}
+                        />
+                    )
+                }}
             />
             <Drawer.Screen
-             name="Ofertas" 
-             component={Ofertas}
-             options={{
-                 title: "Ofertas",
+                name="Ofertas"
+                component={Ofertas}
+                options={{
+                    title: "Ofertas",
 
-                 drawerIcon: ({focused,size, color}) => (
-                     <MaterialCommunityIcons
-                     name="sale"
-                     size={size}
-                     color={color}
-                     />
-                 )
-                 
-             }}
-              />
-              <Drawer.Screen
-             name="DetalheProduto" 
-             component={DetalheProduto}
-             options={{
-                 title: "DetalheProduto",
-
-                 drawerIcon: ({focused,size, color}) => (
-                     <MaterialCommunityIcons
-                     name="detalhe"
-                     size={size}
-                     color={color}
-                     />
-                 )
-                 
-             }}
-              />
-
-            <Drawer.Screen 
-            name="Signin" 
-            component={Signin}
-            options={{
-                title:'Login',
-                drawerIcon: ({focused, size, color}) => (
-                    <MaterialCommunityIcons
-                        name="account-circle"
-                        size={size}
-                        color={color}               
+                    drawerIcon: ({ focused, size, color }) => (
+                        <MaterialCommunityIcons
+                            name="sale"
+                            size={size}
+                            color={color}
                         />
-                      )
-                        }}
-                     />
-        
-          
-          <Drawer.Screen
-          name="CadProdutos"
-          component={CadProdutos}
-          options={{
-              title:'Cadastrar Produtos',
-              drawerIcon: ({focused, size, color}) =>(
-                  <MaterialCommunityIcons
-                  name="rename-box"
-                  size={size}
-                  color={color}
-                  />
-              )
-          }}
-       />   
+                    )
 
-<Drawer.Screen
-          name="CadCategorias"
-          component={CadCategorias}
-          options={{
-              title:'Cadastrar Categorias',
-              drawerIcon: ({focused, size, color}) =>(
-                  <MaterialCommunityIcons
-                  name="rename-box"
-                  size={size}
-                  color={color}
-                  />
-              )
-          }}
-       />     
+                }}
+            />
 
-<Drawer.Screen
-          name="ListaCategorias"
-          component={ListaCategorias}
-          options={{
-              title:'Categorias',
-              drawerIcon: ({focused, size, color}) =>(
-                  <MaterialCommunityIcons
-                  name="text-box"
-                  size={size}
-                  color={color}
-                  />
-              )
-          }}
-       />     
+            <Drawer.Screen
+                name="Signin"
+                component={Signin}
+                options={{
+                    title: 'Login',
+                    drawerIcon: ({ focused, size, color }) => (
+                        <MaterialCommunityIcons
+                            name="account-circle"
+                            size={size}
+                            color={color}
+                        />
+                    )
+                }}
+            />
+
+
+            <Drawer.Screen
+                name="CadProdutos"
+                component={CadProdutos}
+                options={{
+                    title: 'Cadastrar Produtos',
+                    drawerIcon: ({ focused, size, color }) => (
+                        <MaterialCommunityIcons
+                            name="rename-box"
+                            size={size}
+                            color={color}
+                        />
+                    )
+                }}
+            />
+
+            <Drawer.Screen
+                name="CadCategorias"
+                component={CadCategorias}
+                options={{
+                    title: 'Cadastrar Categorias',
+                    drawerIcon: ({ focused, size, color }) => (
+                        <MaterialCommunityIcons
+                            name="rename-box"
+                            size={size}
+                            color={color}
+                        />
+                    )
+                }}
+            />
+
+            <Drawer.Screen
+                name="ListaCategorias"
+                component={ListaCategorias}
+                options={{
+                    title: 'Categorias',
+                    drawerIcon: ({ focused, size, color }) => (
+                        <MaterialCommunityIcons
+                            name="text-box"
+                            size={size}
+                            color={color}
+                        />
+                    )
+                }}
+            />
+
+            <Drawer.Screen
+                name="DetalheProduto"
+                component={DetalheProduto}
+
+                options={{
+                    drawerItemStyle: { height: 0 }
+                }}
+            />
         </Drawer.Navigator>
- )
+    )
 }
 
 export default Routes;

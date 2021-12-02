@@ -62,6 +62,22 @@ function Routes(){
                  
              }}
               />
+              <Drawer.Screen
+             name="DetalheProduto" 
+             component={DetalheProduto}
+             options={{
+                 title: "DetalheProduto",
+
+                 drawerIcon: ({focused,size, color}) => (
+                     <MaterialCommunityIcons
+                     name="detalhe"
+                     size={size}
+                     color={color}
+                     />
+                 )
+                 
+             }}
+              />
 
             <Drawer.Screen 
             name="Signin" 
@@ -77,21 +93,7 @@ function Routes(){
                       )
                         }}
                      />
-
-            <Drawer.Screen 
-            name="Acount" 
-            component={Acount}
-            options={{
-                title:'Criar Conta',
-                drawerIcon: ({focused, size, color}) => (
-                    <MaterialCommunityIcons
-                        name="account-plus"
-                        size={size}
-                        color={color}               
-                        />
-                      )
-                        }}
-                     />               
+        
           
           <Drawer.Screen
           name="CadProdutos"

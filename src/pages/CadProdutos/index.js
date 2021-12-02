@@ -5,8 +5,6 @@
   
   export default function App(){
 
-
-
     const [loading, setLoading] = useState(false);
 
     const [product, setProduct] = useState({
@@ -15,8 +13,25 @@
           preco:'',
         });
 
-        const onChangeName = (value) => {
-          setProduct({ ...product, nome, descricao, preco: value });
+        const onChangeName = (nome) => {
+          setProduct({
+            ...product,
+            nome: nome
+          });
+        };
+
+        const onChangeDescription = (descricao) => {
+          setProduct({
+            ...product,
+            descricao: descricao
+          });
+        };
+
+        const onChangePreco = (preco) => {
+          setProduct({
+            ...product,
+            preco: preco
+          });
         };
 
         const saveData = () => {
@@ -52,25 +67,27 @@
          
             <Input
               placeholderTextColor="#fff"
-              
               placeholder="Nome do produto:"
               autocorrect={false}
-              onChangeText={()=> {}}
+              onChangeText={(nome) => onChangeName(nome)}
+              onSubmitEditing = { e => { dispatch(addTodo(e.nativeEvent.text))}}
             />
   
           <Input
               placeholderTextColor="#fff"
               placeholder="Descrição do produto:"
               autocorrect={false}
-              onChangeText={()=> {}}
+              onChangeText={(descricao) => onChangeDescription(descricao)}
+              onSubmitEditing = { e => { dispatch(addTodo(e.nativeEvent.text))}}
             />    
             
             <Input
               placeholderTextColor="#fff"
               placeholder="Preço do produto:"
-              secureTextEntry
+
               autocorrect={false}
-              onChangeText={()=> {}}
+              onChangeText={(preco) => onChangePreco(preco)}
+              onSubmitEditing = { e => { dispatch(addTodo(e.nativeEvent.text))}}
             />
              
 

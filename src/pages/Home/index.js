@@ -5,6 +5,8 @@ import { Feather } from '@expo/vector-icons';
 import Header from '../../components/Header';
 import { Container, BannerItem, RateContainer, PromoList, SearchContainer, Input, SearchButton, Title, BannerButton, Banner, SliderOferta, Rate } from './styles';
 
+import DetalheProduto from '../../pages/DetalheProduto';
+
 
 function Home({ navigation: { navigate }}) {
 

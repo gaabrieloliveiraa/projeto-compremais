@@ -6,6 +6,7 @@ import { KeyboardView, Title , Container, Input, ButtonSubmit, TextButton,} from
 
 function Acount(){
 
+    
 
     const [loading, setLoading] = useState(false);
 
@@ -99,6 +100,8 @@ function Acount(){
             <Text style={{ color: 'white', textAlign: 'center' }}>
               {loading ? 'Salvando...' : 'Salvar'}
             </Text>
+
+
           </View>
         </TouchableOpacity>
       

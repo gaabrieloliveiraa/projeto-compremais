@@ -4,7 +4,10 @@ import {Image, View, Text,} from 'react-native';
 import {KeyboardView, Container, Input, ButtonSubmit, TextButton,Subtitle, Header} from './styles'
 
 
-function Signin(){
+function Signin({route}){
+
+  const login = route.params.paramKey;
+
     return(
       
       <KeyboardView>
@@ -35,6 +38,11 @@ function Signin(){
           </ButtonSubmit>
 
          
+          <TouchableOpacity onPress={() => navigate('routes', {
+                  paramKey: login,
+                })}
+                />
+                
       </Container>     
 </KeyboardView>
     

@@ -137,23 +137,6 @@ function Routes(){
               )
           }}
        />     
-
-
-
-<Drawer.Screen
-          name="DetalheProduto"
-          component={DetalheProduto}
-          options={{
-              title:'Detalhes do Produto',
-              drawerIcon: ({focused, size, color}) =>(
-                  <MaterialCommunityIcons
-                  name="card-search"
-                  size={size}
-                  color={color}
-                  />
-              )
-          }}
-       />     
         </Drawer.Navigator>
  )
 }

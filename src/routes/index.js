@@ -46,23 +46,7 @@ function Routes() {
                     )
                 }}
             />
-            <Drawer.Screen
-                name="Ofertas"
-                component={Ofertas}
-                options={{
-                    title: "Ofertas",
-
-                    drawerIcon: ({ focused, size, color }) => (
-                        <MaterialCommunityIcons
-                            name="sale"
-                            size={size}
-                            color={color}
-                        />
-                    )
-
-                }}
-            />
-
+           
             <Drawer.Screen
                 name="Signin"
                 component={Signin}
@@ -77,7 +61,21 @@ function Routes() {
                     )
                 }}
             />
-
+  <Drawer.Screen 
+            name="Acount" 
+            component={Acount}
+            options={{
+                title:'Criar Conta',
+                drawerIcon: ({focused, size, color}) => (
+                    <MaterialCommunityIcons
+                        name="account-plus"
+                        size={size}
+                        color={color}               
+                        />
+                      )
+                        }}
+                     />               
+          
 
             <Drawer.Screen
                 name="CadProdutos"

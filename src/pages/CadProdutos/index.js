@@ -1,5 +1,5 @@
   import React, {useState} from "react"
-  import {Image, View, Text,TouchableOpacity} from 'react-native';
+  import {Image, View, Text, TouchableOpacity} from 'react-native';
   import { Subtitle } from "../Signin/styles";
   import { KeyboardView, Title , Container, Input, ButtonSubmit, TextButton,ButtonText } from './styles'
   

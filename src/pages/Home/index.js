@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { RefreshControl, ActivityIndicator, FlatList, Text, View } from "react-native";
+import React, { useEffect, useState, navigate } from "react";
+import { RefreshControl, ActivityIndicator, FlatList, Text, View, TouchableOpacity,  } from "react-native";
 import { Feather } from '@expo/vector-icons';
 
 import Header from '../../components/Header';
 import { Container, BannerItem, RateContainer, PromoList, SearchContainer, Input, SearchButton, Title, BannerButton, Banner, SliderOferta, Rate } from './styles';
 
 
-function Home() {
+function Home({ navigation: { navigate }}) {
 
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -20,20 +20,21 @@ function Home() {
   const onRefresh = React.useCallback(async () => {
     setRefreshing(true);
     try {
-        
-        getProducts();
-        
-        setRefreshing(false)
-      } catch (error) {
-        console.error(error);
-      }
+
+      getProducts();
+
+      setRefreshing(false)
+    } catch (error) {
+      console.error(error);
     }
-  , [refreshing]);
+  }
+    , [refreshing]);
 
   const getProducts = async () => {
     try {
       const response = await fetch('http://10.0.2.2:3000/produtos', {
-        method: 'GET'})
+        method: 'GET'
+      })
         .then((response) => response.json());
       setData(response);
     } catch (error) {
@@ -41,13 +42,11 @@ function Home() {
     } finally {
       setLoading(false);
     }
-  }
+  };
 
   useEffect(() => {
     getProducts();
   }, []);
-
-  
 
   return (
     <Container>
@@ -68,11 +67,11 @@ function Home() {
             data={data}
             keyExtractor={({ id }, index) => id.toString()}
             renderItem={({ item }) => (
-              <>
-                <Title numberOfLines={1}>{item.nome}</Title>
-                <Text>{item.descricao}</Text>
-                <Text>{item.preco}</Text>
-              </>
+                <TouchableOpacity onPress={() => navigate('DetalheProduto', {
+                  paramKey: item,
+                })}>
+                  <Title numberOfLines={1}>{item.nome}</Title>
+                </TouchableOpacity>
             )}
             refreshControl={
               <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />

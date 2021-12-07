@@ -5,7 +5,7 @@ export const KeyboardView =styled.KeyboardAvoidingView`
     flex: 1;
     align-items: center;
     justify-content: center;
-    background-color: #2d5ff5;
+    background-color: #1bb0ce;
     
     `
 export const Container = styled.View`
@@ -39,7 +39,7 @@ export const Input = styled.TextInput`
     padding: 15px 20px;
     color:#fff;
     font-size: 20px;
-    border-radius: 10px;
+    border-radius: 30px;
     width: 90%;
 `
 

@@ -23,7 +23,7 @@ function Routes() {
                 headerShown: false,
 
                 drawerStyle: {
-                    backgroundColor: '#2d5ff5',
+                    backgroundColor: '#1bb0ce',
                     paddingTop: 20,
                 },
 

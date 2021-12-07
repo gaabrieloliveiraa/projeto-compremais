@@ -11,8 +11,7 @@ export default function App(){
         nome: '',
         email:'',
         senha:'',
-        cpf:'',
-        telefone:'',
+       
       });
 
       const onChangeName = (nome) => {
@@ -36,19 +35,7 @@ export default function App(){
         });
       };
 
-      const onChangeCpf = (cpf) => {
-          setRegister({
-            ...register,
-            cpf: cpf
-          });
-        };
-
-        const onChangeTefone = (telefone) => {
-          setRegister({
-            ...register,
-            telefone: telefone
-          });
-        };
+  
 
       const saveData = () => {
         setLoading(true);
@@ -63,8 +50,8 @@ export default function App(){
             nome: register.nome, 
             email: register.email,
             senha: register.senha,
-            cpf: register.cpf,
-            telefone: register.telefone
+            
+      
           }),
         })
           .then((response) => {
@@ -107,24 +94,7 @@ export default function App(){
             onChangeText={(senha) => onChangeSenha(senha)}
             onSubmitEditing = { e => { dispatch(addTodo(e.nativeEvent.text))}}
           />
-           
-           <Input
-            placeholderTextColor="#fff"
-            placeholder="CPF:"
-
-            autocorrect={false}
-            onChangeText={(cpf) => onChangeCpf(cpf)}
-            onSubmitEditing = { e => { dispatch(addTodo(e.nativeEvent.text))}}
-          />
-
-<Input
-            placeholderTextColor="#fff"
-            placeholder="Telefone:"
-
-            autocorrect={false}
-            onChangeText={(telefone) => onChangeTefone(telefone)}
-            onSubmitEditing = { e => { dispatch(addTodo(e.nativeEvent.text))}}
-          />
+   
 
           <TouchableOpacity onPress={saveData}>
           <View style={{ backgroundColor: 'blue', padding: 10 }}>

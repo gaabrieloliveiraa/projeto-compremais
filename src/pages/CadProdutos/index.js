@@ -75,7 +75,7 @@
   
           <Input
               placeholderTextColor="#fff"
-              placeholder="Descrição do produto:"
+              placeholder="Descrição:"
               autocorrect={false}
               onChangeText={(descricao) => onChangeDescription(descricao)}
               onSubmitEditing = { e => { dispatch(addTodo(e.nativeEvent.text))}}
@@ -83,7 +83,7 @@
             
             <Input
               placeholderTextColor="#fff"
-              placeholder="Preço do produto:"
+              placeholder="Valor:"
 
               autocorrect={false}
               onChangeText={(preco) => onChangePreco(preco)}

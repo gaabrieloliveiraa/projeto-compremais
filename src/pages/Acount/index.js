@@ -71,7 +71,7 @@ export default function App(){
        
           <Input
             placeholderTextColor="#fff"
-            placeholder="Nome:"
+            placeholder="Digite seu nome:"
             autocorrect={false}
             onChangeText={(nome) => onChangeName(nome)}
             onSubmitEditing = { e => { dispatch(addTodo(e.nativeEvent.text))}}
@@ -79,7 +79,7 @@ export default function App(){
 
         <Input
             placeholderTextColor="#fff"
-            placeholder="E-mail:"
+            placeholder="Digite seu e-mail:"
             autocorrect={false}
             onChangeText={(email) => onChangeEmail(email)}
             onSubmitEditing = { e => { dispatch(addTodo(e.nativeEvent.text))}}
@@ -87,7 +87,7 @@ export default function App(){
           
           <Input
             placeholderTextColor="#fff"
-            placeholder="Senha:"
+            placeholder="Digite sua senha:"
             
             secureTextEntry
             autocorrect={false}
@@ -100,12 +100,15 @@ export default function App(){
           <View style={{ backgroundColor: 'blue', padding: 10 }}>
           <Text style={{ color: 'white', textAlign: 'center' }}>
             {loading ? 'Salvando...' : 'Salvar'}
+        
+       
           </Text>
         </View>
       </TouchableOpacity>
-    
+      
          
-      </Container>     
+      </Container>  
+     
 </KeyboardView>
     
     

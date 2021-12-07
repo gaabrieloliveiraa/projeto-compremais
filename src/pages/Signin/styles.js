@@ -27,13 +27,7 @@ export const Title = styled.Text`
     font-weight: 800;
     margin-bottom: 30px;
     `
-export const Text = styled.Text`
- 
-    color: white;
-    font-size: 20px;
-    font-weight: 800;
-    margin-bottom: 30px;
-    `
+
 export const Input = styled.TextInput`
     border: 1px solid #12E6Cb;
     margin-bottom: 30px;
@@ -56,10 +50,8 @@ export const TextButton = styled.Text`
     color:#fff;
     font-size: 20px;
     font-weight: bold;
-    
-    
+       
 `
-
 export const Subtitle = styled.Text`
     color:#fff;
     font-size: 20px;
@@ -67,6 +59,25 @@ export const Subtitle = styled.Text`
     padding: 15px 20px;    
     
 `
+export const ViewText = styled.Text`
+    color:#fff;
+    font-size: 16px;
+    padding-top: 5;
+`
+
+export const SubmitButton = styled.TouchableOpacity`
+    color:#fff;
+    font-size: 16px;
+    padding-top: 5;
+`
+export const ButtonText = styled.Text`
+    color:#fff;
+    font-size: 15px;
+    font-weight: bold;
+       
+`
+
+
 
 
    

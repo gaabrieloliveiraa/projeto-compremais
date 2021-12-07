@@ -1,5 +1,5 @@
 import React, { useEffect, useState, navigate } from "react";
-import { RefreshControl, ActivityIndicator, FlatList, Text, View, TouchableOpacity,  } from "react-native";
+import { RefreshControl, ActivityIndicator, FlatList, Text, View, TouchableOpacity, StyleSheet } from "react-native";
 import { Feather } from '@expo/vector-icons';
 
 import Header from '../../components/Header';
@@ -8,10 +8,16 @@ import { Container, BannerItem, RateContainer, PromoList, SearchContainer, Input
 import DetalheProduto from '../../pages/DetalheProduto';
 
 
-function Home({ navigation: { navigate }}) {
+function Home({ navigation: { navigate } }) {
 
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+
+  /**
+   * Trabalhando com imagens
+   */
+  const [image, setImage] = useState(null);
+  const addImage = () => { };
 
   /**
    * Atualizando a tela utilizando o component RefreshControl
@@ -63,17 +69,24 @@ function Home({ navigation: { navigate }}) {
           <Feather name="search" size={38} color="#FFF" />
         </SearchButton>
       </SearchContainer>
-      <View style={{ flex: 1, padding: 24 }}>
+
+      <View style={styles.container}>
         {isLoading ? <ActivityIndicator /> : (
           <FlatList
+            numColumns={2}
             data={data}
             keyExtractor={({ id }, index) => id.toString()}
             renderItem={({ item }) => (
-                <TouchableOpacity onPress={() => navigate('DetalheProduto', {
-                  paramKey: item,
-                })}>
-                  <Title numberOfLines={1}>{item.nome}</Title>
-                </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigate('DetalheProduto', {
+                paramKey: item,
+              })}>
+                <View style={styles.containerUpload}>
+                  {
+                    image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
+                  }
+                </View>
+                <Title style={styles.title} numberOfLines={1}>{item.nome}</Title>
+              </TouchableOpacity>
             )}
             refreshControl={
               <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
@@ -84,4 +97,40 @@ function Home({ navigation: { navigate }}) {
     </Container>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    marginHorizontal: 24,
+    padding: 10,
+    
+  },
+  containerUpload: {
+    elevation: 2,
+    height: 150,
+    width: 150,
+    backgroundColor: '#efefef',
+    position: 'relative',
+    borderRadius: 999,
+    overflow: 'hidden',
+  },
+  uploadBtnContainer: {
+    opacity: 0.7,
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'lightgrey',
+    width: '100%',
+    height: '25%',
+  },
+  uploadBtn: {
+    display: 'flex',
+    alignItems: "center",
+    justifyContent: 'center'
+  },
+  title: {
+    fontSize: 15,
+    textAlign: "center"
+  }
+});
+
 export default Home;

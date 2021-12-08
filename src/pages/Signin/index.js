@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigation } from '@react-navigation/native';
 import {Image, View, Text, StyleSheet} from 'react-native';
 import {KeyboardView, Container, Input, ButtonSubmit, TextButton, ViewText , SubmitButton, ButtonText} from './styles'
@@ -14,18 +14,38 @@ function Signin(){
     })
   }
 
+  const [email, setEmail] = useState(null)
+  const [errorEmail, setErrorEmail] = useState(null)
+  
+
+  const validar = () => {
+    let error = false
+    const re =
+  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    setErrorEmail("Preencha seu e-mail corretamente")
+      error = true
+  }
+
+  const salvar = () => {
+    if(validar()){
+      console.log("Salvou")
+    }
+  }
+
     return(
       
       <KeyboardView>
         <Container>      
-         <Image source={require('../../assets/logo.png')}  style={{width: 400, height: 70, paddingTop: 40,}}/>
+         <Image source={require('../../assets/novalogo.png')}  style={{width: 440, height: 70, paddingTop: 40,}}/>
          
 
         <Input
             placeholderTextColor="#fff"   
             placeholder="E-mail:"
             autocorrect={false}
-            onChangeText={()=> {}}
+            onChangeText={(value)=> {setEmail}}
+            keyboardType="email-address"
+            errorMessage={errorEmail}
           />    
           
           <Input
@@ -34,6 +54,7 @@ function Signin(){
             secureTextEntry
             autocorrect={false}
             onChangeText={()=> {}}
+         
           />
           
           <ButtonSubmit>

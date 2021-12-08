@@ -97,7 +97,7 @@ export default function App() {
     <KeyboardView>
 
       <Container>
-        <Image source={require('../../assets/logo.png')} style={{ width: 400, height: 70, paddingTop: 40, }} />
+        <Image source={require('../../assets/novalogo.png')} style={{ width: 440, height: 70, paddingTop: 40, }} />
 
         <View style={styles.containerUpload}>
           {

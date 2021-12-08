@@ -11,7 +11,7 @@ export const PromoList = StyleSheet.create({
 
 export const Container = styled.SafeAreaView`
 
-    background-color: #2d5ff5;
+    background-color: #1bb0ce;
     flex: 1;
     padding: 4px 0;
 `;

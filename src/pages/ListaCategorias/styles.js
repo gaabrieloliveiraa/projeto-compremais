@@ -1,4 +1,3 @@
-
 import styled from 'styled-components/native';
 
 export const KeyboardView =styled.KeyboardAvoidingView`
@@ -58,11 +57,10 @@ export const TextButton = styled.Text`
     
     
 `
-export const ButtonText = styled.Text`
-    color:#fff;
-    padding: 20px;
-    font-size: 15px;
-    font-weight: bold;
-    
-    `
-   
+export const TouchableOpacity = styled.TouchableOpacity`
+    background-color: #A287f4;
+    border-radius: 10px;
+    width: 90%;
+    padding: 15px 20px;
+    align-items: center;
+`

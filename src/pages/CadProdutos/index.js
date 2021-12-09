@@ -60,7 +60,7 @@ export default function App() {
       bottom: 0,
       backgroundColor: 'lightgrey',
       width: '100%',
-      height: '25%',
+      height: '30%',
     },
     uploadBtn: {
       display: 'flex',
@@ -121,7 +121,7 @@ export default function App() {
 
         <Input
           placeholderTextColor="#fff"
-          placeholder="Descrição:"
+          placeholder="Descrição do produto:"
           autocorrect={false}
           onChangeText={(descricao) => onChangeDescription(descricao)}
           onSubmitEditing={e => { dispatch(addTodo(e.nativeEvent.text)) }}
@@ -129,7 +129,7 @@ export default function App() {
 
         <Input
           placeholderTextColor="#fff"
-          placeholder="Valor:"
+          placeholder="Valor do produto:"
 
           autocorrect={false}
           onChangeText={(preco) => onChangePreco(preco)}
@@ -138,8 +138,8 @@ export default function App() {
 
 
         <TouchableOpacity onPress={saveData}>
-          <View style={{ backgroundColor: 'blue', padding: 10 }}>
-            <Text style={{ color: 'white', textAlign: 'center' }}>
+          <View style={{ backgroundColor: 'white', padding: 10, borderRadius:10 ,height:40 }}>
+            <Text style={{ color: 'blue', textAlign: 'center' }}>
               {loading ? 'Salvando...' : 'Salvar'}
             </Text>
           </View>

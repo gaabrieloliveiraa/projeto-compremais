@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { useNavigation } from '@react-navigation/native';
 import {Image, View, Text, StyleSheet} from 'react-native';
-import {KeyboardView, Container, Input, ButtonSubmit, TextButton, ViewText , SubmitButton, ButtonText} from './styles'
+import {KeyboardView, Container, Input, ButtonSubmit, TextButton, ViewText , SubmitButton, ButtonText, Button} from './styles'
 
 
 function Signin(){
-
-  const navigation = useNavigation();
-
+ 
   const handleMessageButtonClick = () => {
     navigation.reset({
       routes: [{name: 'Acount'}]
@@ -36,7 +34,7 @@ function Signin(){
       
       <KeyboardView>
         <Container>      
-         <Image source={require('../../assets/novalogo.png')}  style={{width: 440, height: 70, paddingTop: 40,}}/>
+         <Image source={require('../../assets/novalogo.png')}  style={{width: 500, height: 120, paddingTop: 40,}}/>
          
 
         <Input
@@ -47,7 +45,6 @@ function Signin(){
             keyboardType="email-address"
             errorMessage={errorEmail}
           />    
-          
           <Input
             placeholderTextColor="#fff"
             placeholder="Senha:"
@@ -56,7 +53,7 @@ function Signin(){
             onChangeText={()=> {}}
          
           />
-          
+
           <ButtonSubmit>
             <TextButton>Login</TextButton>
           </ButtonSubmit>
@@ -68,7 +65,6 @@ function Signin(){
           <SubmitButton OnPress={handleMessageButtonClick} >
             <ButtonText>Cadastre-se</ButtonText>
           </SubmitButton>
-
       </Container>     
 </KeyboardView>
     

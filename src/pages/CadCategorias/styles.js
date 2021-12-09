@@ -57,4 +57,10 @@ export const TextButton = styled.Text`
     
     
 `
-
+export const TouchableOpacity = styled.TouchableOpacity`
+    background-color: #A287f4;
+    border-radius: 10px;
+    width: 90%;
+    padding: 15px 20px;
+    align-items: center;
+`

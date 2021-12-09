@@ -103,6 +103,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 24,
     padding: 10,
     
+    
   },
   containerUpload: {
     elevation: 2,
@@ -110,7 +111,7 @@ const styles = StyleSheet.create({
     width: 150,
     backgroundColor: '#efefef',
     position: 'relative',
-    borderRadius: 999,
+    borderRadius: 99,
     overflow: 'hidden',
   },
   uploadBtnContainer: {

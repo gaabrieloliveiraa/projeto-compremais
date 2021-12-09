@@ -13,11 +13,15 @@ export default function App(){
     <Subtitle></Subtitle>
       <Input
         placeholderTextColor="#fff"
-        
-        placeholder="Nome:"
+        placeholder="Nome da categoria:"
         autocorrect={false}
         onChangeText={()=> {}}
       />
+          
+      
+          <ButtonSubmit>
+            <TextButton>Exibir</TextButton>
+          </ButtonSubmit>
 
     </Container>
          

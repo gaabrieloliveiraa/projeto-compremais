@@ -33,9 +33,9 @@ function Signin() {
         });
         console.log(data);
         if(data.email === login.email && data.senha === login.senha){
-          console.log('Funfou')
+          console.log('Funfou');
         } else {
-          console.log('Deu pal no excel');
+          console.log('Deu pal no excel'); alert("E-amail ou senha inválidos")
         }
     } catch (error) {
       console.error(error);
@@ -68,7 +68,7 @@ function Signin() {
     const re =
       /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     setErrorEmail("Preencha seu e-mail corretamente")
-    error = true
+    error = false
   }
 
   const salvar = () => {

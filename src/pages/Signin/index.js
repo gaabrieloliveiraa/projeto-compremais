@@ -12,7 +12,9 @@ function Signin() {
     email: '',
     senha: '',
   });
+  const [validEmail, setValidEmail] = useState(true);
 
+  
   const handleMessageButtonClick = () => {
     console.log("Simboraaaaaa");
     // navigation.reset({
@@ -33,9 +35,14 @@ function Signin() {
         });
         console.log(data);
         if(data.email === login.email && data.senha === login.senha){
-          console.log('Funfou');
+          console.log('Funfou'); 
         } else {
-          console.log('Deu pal no excel'); alert("E-amail ou senha inválidos")
+          console.log('Deu pal no excel'); alert("Email ou senha inválidos")
+        }
+        if (data.email != '' && login.email !=''  && data.senha !='' && login.senha != '' && validEmail){
+        } else {
+          console.log('Deu pal no excel'); alert("Existem campo(s) vazios ou inválidos")
+        
         }
     } catch (error) {
       console.error(error);
@@ -48,12 +55,23 @@ function Signin() {
   const [email, setEmail] = useState(null)
   const [errorEmail, setErrorEmail] = useState(null)
 
+
   const onGetEmail = (email) => {
-    setLogin({
-      ...login,
-      email: email
-    });
+    var re = /\S+@\S+\.\S+/;
+
+    if(re.test(email)) {
+      setValidEmail(true)
+      setLogin({
+        ...login,
+        email: email
+      });
+    } else {
+      setValidEmail(false);
+    }
   };
+
+
+ 
 
   const onGetSenha = (senha) => {
     setLogin({
@@ -63,20 +81,7 @@ function Signin() {
   };
 
 
-  const validar = () => {
-    let error = false
-    const re =
-      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    setErrorEmail("Preencha seu e-mail corretamente")
-    error = false
-  }
-
-  const salvar = () => {
-    if (validar()) {
-      console.log("Salvou")
-    }
-  }
-
+  
   return (
 
     <KeyboardView>

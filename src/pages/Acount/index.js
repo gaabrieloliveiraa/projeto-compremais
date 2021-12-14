@@ -73,7 +73,7 @@ export default function App(){
           } else {
             Alert.alert(
               "Aviso.",
-              "Existem campo(s) vazio ou estão inválidos.",
+              "Existem campo(s) vazio ou estão inválidos",
               [
                 {
                   text: "Cancel",

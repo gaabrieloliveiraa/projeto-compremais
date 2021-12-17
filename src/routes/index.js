@@ -1,5 +1,6 @@
-import React from "react";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import React, { useState, useContext } from "react";
+import { createDrawerNavigator  } from "@react-navigation/drawer";
+import { useIsFocused  } from "@react-navigation/native";
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -13,10 +14,35 @@ import CadProdutos from '../pages/CadProdutos';
 import CadCategorias from '../pages/CadCategorias';
 import ListaCategorias from '../pages/ListaCategorias';
 import DetalheProduto from '../pages/DetalheProduto';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { JetContext } from "../context/menulateral";
 const Drawer = createDrawerNavigator();
 
-function Routes() {
+function Routes({navigation}) {
+    const isFocused = useIsFocused();
+    const [login, setLogin] = useState(false);
+    const [Jets, setJets] = useContext(JetContext);
+
+    React.useEffect(() => {
+        console.log(Jets)
+        getData();
+        setLogin(Jets)
+    }, [Jets])
+
+    const getData = async () => {
+        try {
+          const value = await AsyncStorage.getItem('@login')
+          if(value !== null) {
+            // value previously stored
+            let res = JSON.parse(value);
+            setLogin(res);
+          }
+        } catch(e) {
+          // error reading value
+        }
+      }
+  
+
     return (
         <Drawer.Navigator
             screenOptions={{
@@ -32,10 +58,10 @@ function Routes() {
                 drawerInactiveTintColor: '#FFF'
             }}
         >
-            <Drawer.Screen
+          <Drawer.Screen
                 name="HomeDrawer"
                 component={StackRoutes}
-                options={{
+                options={{ 
                     title: 'Home',
                     drawerIcon: ({ focused, size, color }) => (
                         <MaterialCommunityIcons
@@ -47,7 +73,7 @@ function Routes() {
                 }}
             />
            
-            <Drawer.Screen
+            {!login.success && <Drawer.Screen
                 name="Signin"
                 component={Signin}
                 options={{
@@ -60,8 +86,8 @@ function Routes() {
                         />
                     )
                 }}
-            />
-  <Drawer.Screen 
+            />}
+  {!login.success && <Drawer.Screen 
             name="Acount" 
             component={Acount}
             options={{
@@ -74,9 +100,9 @@ function Routes() {
                         />
                       )
                         }}
-                     />               
+                     />   }            
           
-
+{login.success &&
             <Drawer.Screen
                 name="CadProdutos"
                 component={CadProdutos}
@@ -91,8 +117,8 @@ function Routes() {
                     )
                 }}
             />
-
-            <Drawer.Screen
+            }
+            {/* {Jets.success && <Drawer.Screen
                 name="CadCategorias"
                 component={CadCategorias}
                 options={{
@@ -105,9 +131,9 @@ function Routes() {
                         />
                     )
                 }}
-            />
+            />} */}
 
-            <Drawer.Screen
+            {/* {login.success && <Drawer.Screen
                 name="ListaCategorias"
                 component={ListaCategorias}
                 options={{
@@ -120,9 +146,9 @@ function Routes() {
                         />
                     )
                 }}
-            />
+            />} */}
 
-            <Drawer.Screen
+          < Drawer.Screen
                 name="DetalheProduto"
                 component={DetalheProduto}
 
@@ -130,6 +156,7 @@ function Routes() {
                     drawerItemStyle: { height: 0 }
                 }}
             />
+
         </Drawer.Navigator>
     )
 }

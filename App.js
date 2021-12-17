@@ -5,13 +5,16 @@ import { StatusBar, } from 'react-native';
 import { NavigationContainer} from '@react-navigation/native';
 import Routes from './src/routes';
 import Signin from './src/pages/Signin';
+import { JetProvider } from './src/context/menulateral';
 
 function App(){
   return(
-    <NavigationContainer>
+    <JetProvider>
+      <NavigationContainer>
       <StatusBar hidden={true} />
       <Routes />
     </NavigationContainer>
+    </JetProvider>
   )
 }
 

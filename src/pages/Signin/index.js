@@ -1,25 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigation } from '@react-navigation/native';
 import { Image, Text } from 'react-native';
 import { KeyboardView, Container, Input, ButtonSubmit, TextButton, ViewText, SubmitButton, ButtonText, Button } from './styles'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import { JetContext } from "../../context/menulateral";
 
-function Signin() {
-
+function Signin({navigation}) {
+  const [Jets, setJets] = useContext(JetContext);
   const endpoint = 'http://10.0.2.2:3000/usuarios?email=';
+
+  
+  const storeData = async (value) => {
+    try {
+      await AsyncStorage.setItem('@login', value)
+    } catch (e) {
+      // saving error
+    }
+  }
 
   const [login, setLogin] = useState({
     email: '',
     senha: '',
   });
   const [validEmail, setValidEmail] = useState(true);
-
+  
+  const entrar = () =>{
+    navigation.reset({
+      index:0,
+      routes:[{name:"Home"}]
+    })
+  }
   
   const handleMessageButtonClick = () => {
     console.log("Simboraaaaaa");
-    // navigation.reset({
-    //   routes: [{name: 'Acount'}]
-    // })
+     navigation.reset({
+       routes: [{name: 'Acount'}]
+     })
   }
 
   const [data, setData] = useState(null);
@@ -31,19 +48,24 @@ function Signin() {
       })
         .then((response) => response.json())
         .then(response => {
+          console.log(response[0])
           setData(response[0]);
+          if((response[0].email === login.email) && response[0].senha === login.senha){
+            console.log('Funfou,segura peão'); 
+            storeData(JSON.stringify({success:true}));
+            setJets(JSON.stringify({success:true}));
+            navigation.navigate("Home");
+          } else {
+            console.log('Deu pal no excel'); alert("Email ou senha inválidos")
+            storeData(JSON.stringify({success:false}));
+          }
+          if (response[0].email != '' && login.email !=''  && response[0].email !='' && login.senha != '' && validEmail){
+          } else {
+            console.log('Deu pal no excel'); alert("Existem campo(s) vazios ou inválidos")
+          
+          }
         });
         console.log(data);
-        if(data.email === login.email && data.senha === login.senha){
-          console.log('Funfou'); 
-        } else {
-          console.log('Deu pal no excel'); alert("Email ou senha inválidos")
-        }
-        if (data.email != '' && login.email !=''  && data.senha !='' && login.senha != '' && validEmail){
-        } else {
-          console.log('Deu pal no excel'); alert("Existem campo(s) vazios ou inválidos")
-        
-        }
     } catch (error) {
       console.error(error);
     } finally {

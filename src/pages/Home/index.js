@@ -82,7 +82,7 @@ function Home({ navigation: { navigate } }) {
               })}>
                 <View style={styles.containerUpload}>
                   {
-                    image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
+                    image && <Image source={{ uri: image }} style={{ width: 200, height: 200}} />
                   }
                 </View>
                 <Title style={styles.title} numberOfLines={1}>{item.nome}</Title>
@@ -113,6 +113,8 @@ const styles = StyleSheet.create({
     position: 'relative',
     borderRadius: 99,
     overflow: 'hidden',
+    padding: 5,
+    marginRight: 10
   },
   uploadBtnContainer: {
     opacity: 0.7,
